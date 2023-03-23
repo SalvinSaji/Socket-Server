@@ -17,12 +17,12 @@ def handle_client(conn,addr):
     print(reqPath)
 
     try:
-        with open('resource' + reqPath) as f:
+        with open(reqPath) as f:
             cont = f.read()
             res = f'HTTP/1.1 200 OK\n\n{cont}'
     except FileNotFoundError:
         try:
-            with open('resource/404.html') as f:
+            with open('404.html') as f:
                 cont = f.read()
                 res = f'HTTP/1.1 404 NOT FOUND\n\n{cont}'
         except FileNotFoundError:
